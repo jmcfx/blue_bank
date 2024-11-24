@@ -1,6 +1,8 @@
-import 'package:blue_bank/src/utils/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:blue_bank/src/utils/app_style.dart';
+import 'package:blue_bank/src/utils/button_textstyle.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField(
@@ -65,7 +67,7 @@ class HeaderLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-     mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
           "assets/images/logo2.png",
@@ -96,17 +98,50 @@ class ForgotPasswordTextStyle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return   Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text("Forgot password?", style: TextStyle(
-          fontSize: 14.sp,
-          color: AppStyle.primaryBlue
-        ),)
+        Text(
+          "Forgot password?",
+          style: TextStyle(fontSize: 14.sp, color: AppStyle.primaryBlue),
+        )
       ],
     );
   }
 }
 
+//custom Button Style ....
 
+class CustomButtonStyle extends StatelessWidget {
+  const CustomButtonStyle(
+      {super.key, required this.text, this.isCreateAccount = false,  required this.onTap});
+  final String text;
+  final bool isCreateAccount;
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          
+            elevation: isCreateAccount ? 0.r : 1.r,
+            backgroundColor:
+                isCreateAccount ? AppStyle.backGroundColor : AppStyle.primaryBlue,
+            side: const BorderSide(color: AppStyle.splashBackGround)),
+        onPressed: onTap,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: 15.r,
+            bottom: 15.r,
+          ),
+          child: Text(
+            text,
+            style: isCreateAccount
+                ? buttonTextStyle().copyWith(color: AppStyle.primaryBlue)
+                : buttonTextStyle(),
+          ),
+        ),
+      ),
+    );
+  }
+}

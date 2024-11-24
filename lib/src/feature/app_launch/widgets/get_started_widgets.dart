@@ -1,4 +1,5 @@
 import 'package:blue_bank/src/utils/app_style.dart';
+import 'package:blue_bank/src/utils/button_textstyle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -120,27 +121,39 @@ class SubTitleText extends StatelessWidget {
         children: [
           Text(
             "Enjoy the benefits of online banking by becoming\na customer. Let's Help you find the right account.",
-            style: TextStyle(
-              color: AppStyle.subtitleColor,
-              fontWeight: FontWeight.normal,
-              fontSize: 14.sp,
-            ),
+            style: subTitleTextStyle(),
           )
         ],
       ),
     );
   }
+
+  
+
+  
+}
+
+//
+TextStyle subTitleTextStyle() {
+  return TextStyle(
+    color: AppStyle.subtitleColor,
+    fontWeight: FontWeight.normal,
+    fontSize: 14.sp,
+  );
 }
 
 // Button ...
 
 class ButtonText extends StatelessWidget {
-  const ButtonText(
-      {super.key, this.onTap, required this.text, });
+  const ButtonText({
+    super.key,
+    this.onTap,
+    required this.text,
+  });
   final VoidCallback? onTap;
-  
+
   final String text;
-  
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -149,16 +162,13 @@ class ButtonText extends StatelessWidget {
             backgroundColor: WidgetStatePropertyAll(AppStyle.primaryBlue)),
         onPressed: onTap,
         child: Padding(
-          padding:   EdgeInsets.only(
-            top: 20.r , bottom: 20.r , right: 101.r , left: 101.r,
+          padding: EdgeInsets.only(
+            top: 20.r,
+            bottom: 20.r,
           ),
           child: Text(
             text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-            ),
+            style: buttonTextStyle(),
           ),
         ),
       ),

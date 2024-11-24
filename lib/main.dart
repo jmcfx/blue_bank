@@ -23,9 +23,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Blue Bank',
             theme: ThemeData(
+              scaffoldBackgroundColor: AppStyle.backGroundColor,
               colorScheme: ColorScheme.fromSeed(
-                  seedColor: AppStyle.primaryBlue,
-                  primary: AppStyle.primaryBlue),
+                seedColor: AppStyle.primaryBlue,
+                primary: AppStyle.primaryBlue,
+              ),
               useMaterial3: true,
             ),
             routerConfig: appRouter.config(),

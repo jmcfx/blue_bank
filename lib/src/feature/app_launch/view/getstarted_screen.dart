@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:blue_bank/src/feature/app_launch/widgets/get_started_widgets.dart';
 import 'package:blue_bank/src/route.dart';
+import 'package:blue_bank/src/utils/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +17,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppStyle.backGroundColor,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 24.5.r, vertical: 4.r),
@@ -45,7 +47,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 },
               ),
               SizedBox(
-                height: 8.h,
+                height: 10.h,
               )
             ],
           ),
