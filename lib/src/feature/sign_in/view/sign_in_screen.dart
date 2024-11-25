@@ -63,10 +63,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 28.h,
                 ),
                 //sign in .....
-                 CustomButtonStyle(
-                  onTap: (){
+                CustomButtonStyle(
+                  onTap: () {
                     //push to onBoarding....
-                   context.router.push(const OnboardingRoute());
+                    context.router.push(const OnboardingRoute());
                   },
                   text: "Sign in",
                 ),
@@ -74,16 +74,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 140.h,
                 ),
                 //create account .....
-                 CustomButtonStyle(
-                  onTap: (){
-                   
-                  },
+                CustomButtonStyle(
+                  onTap: () {},
                   text: "Create account",
                   isCreateAccount: true,
                 ),
-              SizedBox(
-              height: 5.h,
-             )
+                SizedBox(
+                  height: 5.h,
+                )
               ],
             ),
           ),
