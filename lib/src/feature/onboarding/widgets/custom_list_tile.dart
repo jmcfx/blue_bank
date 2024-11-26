@@ -1,11 +1,10 @@
-// Radio Style ........
-import 'package:blue_bank/src/feature/app_launch/widgets/get_started_widgets.dart';
+
 import 'package:blue_bank/src/utils/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //
-class CustomListTile extends StatefulWidget {
+class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key,
     required this.text,
@@ -14,16 +13,11 @@ class CustomListTile extends StatefulWidget {
   final Map<String, String> text;
 
   @override
-  State<CustomListTile> createState() => _CustomListTileState();
-}
-
-class _CustomListTileState extends State<CustomListTile> {
-  @override
   Widget build(BuildContext context) {
-    String title = widget.text['title'] ?? "";
-    String subtitle = widget.text['subtitle'] ?? "";
+    String title = text['title'] ?? "";
+    String subtitle = text['subtitle'] ?? "";
     return Padding(
-      padding: EdgeInsets.only(top: 6.h, bottom: 8.h),
+      padding: EdgeInsets.only(top: 6.r, bottom: 8.r),
       child: ListTile(
         onTap: () {},
         shape: BeveledRectangleBorder(
@@ -59,32 +53,4 @@ class _CustomListTileState extends State<CustomListTile> {
   }
 }
 
-// Header Column .......
-class HeaderColumn extends StatelessWidget {
-  const HeaderColumn({
-    super.key,
-    required this.title,
-    required this.subTitle,
-  });
 
-  final String title, subTitle;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
-        ),
-        SizedBox(
-          height: 8.h,
-        ),
-        Text(
-          subTitle,
-          style: subTitleTextStyle(),
-        )
-      ],
-    );
-  }
-}

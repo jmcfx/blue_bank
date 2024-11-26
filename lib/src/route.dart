@@ -6,12 +6,12 @@ import 'package:blue_bank/src/feature/sign_in/view/sign_in_screen.dart';
 
 part 'route.gr.dart';
 
-@AutoRouterConfig()
+
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         /// routes go here
-        AutoRoute(page: SplashRoute.page, ),
+        AutoRoute(page: SplashRoute.page,  ),
         AutoRoute(
           page: GetStartedRoute.page,
         ),
@@ -19,7 +19,7 @@ class AppRouter extends RootStackRouter {
           page: SignInRoute.page, 
         ),
         AutoRoute(
-          page: OnboardingRoute.page, initial: true
+          page: OnboardingRoute.page, initial: true 
         )
       ];
 }

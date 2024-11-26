@@ -7,4 +7,5 @@ class AppStyle {
   static const splashBackGround = Color(0xFF0055F9);
   static const customTextFormFieldBorderColor = Color(0xFFD1D1D1);
   static const secondText = Color(0xFF3D3D3D);
+  static const bundleAccounts = Color(0xFFE6EEFE);
 }

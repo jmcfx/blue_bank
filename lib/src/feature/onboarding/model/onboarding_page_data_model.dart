@@ -13,7 +13,6 @@ class OnboardingPageDataModel {
   });
 }
 
-
 final List<OnboardingPageDataModel> pagesDataList = [
   OnboardingPageDataModel(
     question: "i'm looking for a",
@@ -24,13 +23,11 @@ final List<OnboardingPageDataModel> pagesDataList = [
       {"title": "Joint account", "subtitle": ""},
     ],
   ),
-
   OnboardingPageDataModel(
     question: "i'm looking for a",
     title: "What is your age?",
     subTitle:
         "If you are opening an account for a child, please select their age.",
-
     options: [
       {"title": "Under 14", "subtitle": ""},
       {"title": "14-17", "subtitle": ""},
