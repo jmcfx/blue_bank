@@ -48,6 +48,25 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [OpenAccountScreen]
+class OpenAccountRoute extends PageRouteInfo<void> {
+  const OpenAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          OpenAccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OpenAccountRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OpenAccountScreen();
+    },
+  );
+}
+
+/// generated route for
 /// [SignInScreen]
 class SignInRoute extends PageRouteInfo<void> {
   const SignInRoute({List<PageRouteInfo>? children})
