@@ -14,24 +14,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(390, 844),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          final appRouter = AppRouter();
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: 'Blue Bank',
-            theme: ThemeData(
-              scaffoldBackgroundColor: AppStyle.backGroundColor,
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: AppStyle.primaryBlue,
-                primary: AppStyle.primaryBlue,
-              ),
-              useMaterial3: true,
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        final appRouter = AppRouter();
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Blue Bank',
+          theme: ThemeData(
+            scaffoldBackgroundColor: AppStyle.backGroundColor,
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: AppStyle.primaryBlue,
+              primary: AppStyle.primaryBlue,
             ),
-            routerConfig: appRouter.config(),
-          );
-        });
+            useMaterial3: true,
+          ),
+          routerConfig: appRouter.config(),
+        );
+      },
+    );
   }
 }

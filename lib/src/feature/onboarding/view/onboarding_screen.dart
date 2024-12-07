@@ -6,37 +6,24 @@ import 'package:blue_bank/src/feature/onboarding/widgets/onboarding_page.dart';
 import 'package:blue_bank/src/route.dart';
 import 'package:blue_bank/src/utils/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 @RoutePage()
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends HookWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen>
-    with SingleTickerProviderStateMixin {
-  int currentStep = 0;
-  late PageController _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0);
-  }
-
-  void _onPageChanged(int index) {
-   
-    setState(() {
-      currentStep = index;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final currentStep = useState(0);
+
+    final pageController = usePageController(initialPage: 0);
+
+    void onPageChanged(int index) {
+      currentStep.value = index;
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -67,7 +54,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     child: StepProgressIndicator(
                       unselectedColor: AppStyle.unSelectedColor,
                       selectedColor: AppStyle.primaryBlue,
-                      currentStep: currentStep + 1,
+                      currentStep: currentStep.value + 1,
                       totalSteps: 5,
                       roundedEdges: Radius.circular(4.r),
                       padding: 7.r,
@@ -96,8 +83,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               child: Stack(
                 children: [
                   PageView.builder(
-                    onPageChanged: _onPageChanged,
-                    controller: _pageController,
+                    onPageChanged: onPageChanged,
+                    controller: pageController,
                     itemCount: pagesDataList.length + 1,
                     itemBuilder: (context, index) {
                       if (index == pagesDataList.length) {
@@ -115,13 +102,11 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               child: ButtonText(
                 onTap: () {
                   // Increment current step
-                  if (currentStep < pagesDataList.length) {
-                    setState(() {
-                      currentStep++;
-                    });
+                  if (currentStep.value < pagesDataList.length) {
+                    currentStep.value++;
                     // Animate to the next page
-                    _pageController.animateToPage(
-                      currentStep,
+                    pageController.animateToPage(
+                      currentStep.value,
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeIn,
                     );
@@ -130,7 +115,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     context.router.push(const OpenAccountRoute());
                   }
                 },
-                text: currentStep == pagesDataList.length
+                text: currentStep.value == pagesDataList.length
                     ? "Open Account"
                     : "Continue",
               ),
