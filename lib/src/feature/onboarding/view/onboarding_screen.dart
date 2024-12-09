@@ -90,7 +90,11 @@ class OnboardingScreen extends HookWidget {
                       if (index == pagesDataList.length) {
                         return const OnboardingLastPage();
                       }
-                      return OnboardingPage(data: pagesDataList[index]);
+                      return OnboardingPage(
+                        
+                        pageIndex: index,
+                        data: pagesDataList[index],
+                      );
                     },
                   )
                 ],

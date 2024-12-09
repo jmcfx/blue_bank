@@ -12,7 +12,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         /// routes go here
-        AutoRoute(page: SplashRoute.page,  initial: true ),
+        AutoRoute(page: SplashRoute.page ,),
         AutoRoute(
           page: GetStartedRoute.page,
         ),
@@ -20,7 +20,7 @@ class AppRouter extends RootStackRouter {
           page: SignInRoute.page,
         ),
         AutoRoute(
-          page: OnboardingRoute.page,
+          page: OnboardingRoute.page,  initial: true
         ),
          AutoRoute(
           page: OpenAccountRoute.page, 
